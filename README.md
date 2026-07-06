@@ -26,7 +26,7 @@ graph TD
     SC -- "route: clear" --> ORCH[Orchestrator Agent]
     SC -- "route: security_alert" --> FO[Final Output]
     
-    subgraph Specialists (MCP Tools)
+    subgraph Specialists ["Specialists (MCP Tools)"]
         SA[Scholarship Agent]
         CA[Career Agent]
         AA[Academic Agent]
