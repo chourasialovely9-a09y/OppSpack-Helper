@@ -1,0 +1,46 @@
+[0:00 — HOOK]
+Every year, millions of students miss out on scholarships, internships, and certifications simply because they are buried across thousands of scattered websites. The Student Success Navigator solves this by matching opportunities directly to their profile, in a highly secure and customized way.
+(pause)
+
+[0:20 — WHAT IT IS]
+This application is built for the "Agents for Good" track. It operates as a personalized academic and career advisor that discovers scholarships, plans certification paths, and recommends internships.
+(pause)
+
+[0:40 — SHOW THE BANNER]
+(show assets/cover_page_banner.png)
+As you can see from our project cover, the Student Success Navigator is an automated, secure, and intelligent pathway assistant for student growth.
+(pause)
+
+[1:00 — ARCHITECTURE]
+(show assets/architecture_diagram.png)
+Let's walk through the architecture diagram to see how it works under the hood. 
+First, when a user submits a query, it enters the START node and immediately goes through our security_checkpoint node. 
+If the query is clean, it is routed to the orchestrator_agent node. 
+The orchestrator_agent acts as the central coordinator and uses AgentTools to delegate tasks to three specialized sub-agents: the scholarship_agent, the career_agent, and the academic_agent. 
+These specialized agents connect to our custom Model Context Protocol, or MCP, server to query structured databases for real-time opportunities. 
+Before returning the final results, the workflow pauses at the human_review node to ask for confirmation from the student, and then prints the approved output through final_output.
+(pause)
+
+[2:00 — LIVE DEMO]
+(switch to playground at localhost:18081)
+Let's see this in action with a live demo.
+I will type: "I am a second-year B.Tech Computer Science student from India with a 9.2 CGPA. I have strong skills in Python and machine learning. I am looking for internships and scholarship opportunities."
+(pause - send the query)
+Notice that the query is processed by the security checkpoint, which verifies it's safe. 
+Then, the orchestrator delegates to the scholarship and career agents. 
+The scholarship agent queries the MCP server and finds the Microsoft Tuition Scholarship and Google Generation Scholarship. 
+The career agent queries the MCP server and recommends the Google STEP internship.
+(pause)
+Here is the human review pause. It shows the draft recommendations and asks: "Please review this draft. Do you approve?"
+I will type "approve" to authorize the draft.
+(pause - send approval)
+The final formatted report is generated and displayed on screen.
+(pause)
+
+[3:00 — SECURITY & MCP]
+A key feature of our system is safety. The security checkpoint scrubs email and phone number PII into redacted tokens, blocks prompt injection, and logs audit reports. 
+Our custom MCP tools query structured endpoints for internships, scholarships, and courses, making the advisor highly grounded and reliable.
+(pause)
+
+[3:30 — IMPACT / CLOSE]
+By giving students direct, personalized access to resources matching their skills and financial needs, the Student Success Navigator saves hundreds of hours of research and bridges the opportunity gap for learners worldwide. Thank you!
